@@ -42,7 +42,7 @@
                     margin: 1.5rem;
                     border-top-left-radius: 100px;
                     border-bottom-right-radius: 100px;
-                    border-style:outset;
+                    border-style:outset;   
                 }
                 div{
                     color:crimson;
@@ -53,6 +53,8 @@
                     max-width: 750px;
                     margin: 1rem;
                     gap: 10px;
+                    position: sticky;
+                    top: 0px;
                 }
                 .info div{
                     background: #f4f1f7;
@@ -60,6 +62,8 @@
                     padding: 12px;
                 }
                 h2{
+                    position: sticky;
+                    top: 120px;
                     font-weight: bold;
                     border-radius: 8px;
                     background-color: crimson;
@@ -71,6 +75,10 @@
                     max-width: 750px;
                     padding-left: 105px;
                     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                }
+                h2.instructions{
+                    position: sticky;
+                    top: 150px;
                 }
                 ol, ul{
                     font-size: 15px;
@@ -92,6 +100,13 @@
                     color: rgb(236, 30, 30);
                     text-decoration:overline;
                 }
+                h4{
+                    text-decoration: underline;
+                }
+                .moreReceipes{
+                    text-align: center;
+                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                }
             </style>
     </head>
 <body>
@@ -102,7 +117,6 @@
         <p>Italian Pizza<br>&#127829</p>
     </header>
     <main>
-
         <img 
       src="https://cdn.dummyjson.com/recipe-images/1.webp" 
       alt="Classic Margherita Pizza" >
@@ -127,7 +141,7 @@
                 <li>Olive oil</li>
                 <li>Salt and pepper to taste</li>
             </ul>
-            <h2>
+            <h2 class="instructions">
                 INSTRUCTIONS :
             </h2>
             <ol>
@@ -139,6 +153,9 @@
                 <li>Slice and serve hot.</li>
             </ol>
         </div>  
+        <div class="moreReceipes">
+            <p>For more receipes like this, visit <a href="http://dummyjson.com/docs/recipes#recipes-all"> more receipes.</a></p>
+        </div>
     </main>
     </body>
 <div class="link" >
