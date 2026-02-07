@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Form – Starter Code</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: #E5608E;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border: 1px solid rgba(229, 96, 142, 0.3);
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+    }
+
+    input, select {
+      width: 95%;
+      padding: 8px;
+      margin-top: 6px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .section-heading {
+      margin-top: 25px;
+      font-size: 1.1rem;
+      color: #ffb3c6;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #E5608E;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>Advanced Form – Practice Playground </h2>
+
+  <form class="form-box">
+
+    <!-- TASK 1: DROPDOWN -->
+    <div class="section-heading">Dropdown Section</div>
+    <select required> <option value="">-- Choose Course --</option> <option>HTML</option> <option>CSS</option> <option>JavaScript</option> </select>
+    
+    <!-- TASK 2: RADIO BUTTONS -->
+    <div class="section-heading">Learning Mode</div>
+Online <input type="radio" name="mode">   Offline <input type="radio" name="mode">
+
+    <!-- TASK 3: CHECKBOXES -->
+    <div class="section-heading">Available Days</div>
+Monday <input type="checkbox">   Friday <input type="checkbox"> Saturday <input type="checkbox">  Sunday <input type="checkbox">
+
+    <!-- TASK 4: VALIDATED INPUTS -->
+    <div class="section-heading">Validated Input Fields</div>
+
+    <label>Email:</label>
+    <input type="email" required placeholder="Enter Email">
+
+    <label>Phone:</label>
+    <input type="text" pattern="[0-9] {10}" placeholder="10-digit Phone">
+
+    <label>Age:</label>
+    <input type="number" min="18" max="60" placeholder="Age 18-60">
+
+    <!-- TASK 5: SUPERSCRIPT FUN LINE -->
+    <div class="section-heading">Footer Line</div>
+<p>Powered by HTML<sup>5</sup> magic!</p>
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Ling and link styling
+        </title>
+        <style>
+            h2{
+                text-align:center;
+            }
+            ul{
+                list-style-position: inside;
+                text-align: center;
+            }
+            .circle{
+                list-style-type: circle;
+                color: chartreuse;
+            }
+            .square{
+                list-style-type: square;
+                color: chartreuse;
+            }
+            .image{
+                list-style-image: url("https://picsum.https://via.placeholder.com/30");
+            }
+
+            .roman{
+                list-style-type: upper-roman;
+                color:darkkhaki;
+                list-style-position: inside;
+                text-align: center;
+            }
+
+            .link a:link{
+                color: black;
+                text-decoration: none;
+            }
+            .link a:visited{
+                color: firebrick;
+            }
+            .link a:hover{
+                color: darkblue;
+                text-decoration: double;
+            }
+            .link a:active{
+                color: aliceblue;
+            }
+
+            body{
+                background-color: darkslategray;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <h2> Unordered Circle List</h2>
+            <ul class="circle">
+                <li>1st item</li>
+                <li>2nd item</li>
+                <li>3rd item</li>
+            </ul>
+        </div>
+        <div>
+            <h2> Unordered Square List</h2>
+            <ul class="square">
+                <li>1st item</li>
+                <li>2nd item</li>
+                <li>3rd item</li>
+            </ul>
+        </div>
+        <div>
+            <h2> Ordered Roman List</h2>
+            <ol class="roman">
+                <li>1st item</li>
+                <li>2nd item</li>
+                <li>3rd item</li>
+            </ol>
+        </div>
+        <div>
+
+            <h2> Unordered Image List</h2>
+            <ul class="image">
+                <li>1st item</li>
+                <li>2nd item</li>
+                <li>3rd item</li>
+            </ul>
+        </div>
+            <h2> Styled links</h2>
+            <div class="link">
+                <ul class="circle">
+                    <li><a href="https://www.flipkart.com/">Flipkart</a></li>
+                    <li><a href="https://www.amazon.in/">Amazon</a></li>
+                    <li><a href="https://open.spotify.com/">Spotify</a></li>
+                </ul>
+        </div>
+    </body>
+</html>

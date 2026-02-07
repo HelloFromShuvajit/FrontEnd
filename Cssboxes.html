@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="10">
+
+  <title>Box Model Demo</title>
+  <style>
+    body{
+        background-color: darkseagreen;
+    }
+    .box {
+      display: inline-block;          
+      width: 200px;
+      height: 150px;
+
+      padding: 20px 10px;
+      border: 5px solid #333;          
+      margin: 20px;                    
+
+      background-color: #a7d8ff;       
+      box-sizing: border-box;          
+      vertical-align:middle;
+    }
+
+    .box.two {
+      margin-left: 160px;               
+      background-color: #ffd6a7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    Box 1<br>
+    Padding: 20px 10px<br>
+    Margin: 20px
+  </div>
+
+  <div class="box two">
+    Box 2<br>
+    Extra left margin
+  </div>
+
+</body>
+</html>

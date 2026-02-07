@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility in HTML – Practice Playground</title>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+        color: #fff;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ffcc70;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    input, button, select, textarea {
+        margin-top: 8px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 8px;
+        border: none;
+    }
+
+    button {
+        background: #ffcc70;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #ffb84d;
+    }
+
+    .demo-box {
+        background: #33334d;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    nav a:hover{
+        background-color:azure;
+        color: #1e1e2f;
+    }
+     nav a:focus {
+    outline: 3px solid #38bdf8; 
+    outline-offset: 2px;
+    background-color: #d7eb22;
+  }
+   nav a:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Accessibility in HTML</h1>
+
+<div class="card">
+    <h2>Accessible Image Example</h2>
+    <div class="demo-box">
+        <img src="https://www.kasandbox.org/programming-images/avatars/leaf-green.png" alt="This is a image of green leaf">
+        <img src="https://www.kasandbox.org/programming-images/avatars/leaf-grey.png" alt="This is a image of grey leaf">
+        <img src="https://www.kasandbox.org/programming-images/avatars/leaf-red.png" alt="This is a image of red leaf">
+        
+    </div>
+</div>
+
+<div class="card">
+    <h2>Please Fill up the form</h2>
+    <label for="username">Enter your name:</label>
+    <input type="text" id="username" placeholder="Type your name here">
+    <label for="email"> Enter your Email Id:</label>
+    <input type="text" id="email" aria-required="true" placeholder="Type your email here">
+</div>
+
+<div class="card">
+    <h2>Button with ARIA Label</h2>
+    <button aria-label="Accessible Button">Accessible Button</button>
+    <!-- TODO: Add a proper ARIA label describing button purpose -->
+</div>
+
+<div class="card">
+    <h2>Navigation Example</h2>
+    <nav>
+        <a href="#" tabindex="0">Home</a> |
+        <a href="#" tabindex="0">About</a> |
+        <a href="#" tabindex="0">Contact</a>
+    </nav>
+    <!-- TODO: Ensure focus outlines are visible and navigable via keyboard -->
+</div>
+
+<div class="card">
+    <h2>This is an assignment of HTML</h2>
+    <h3>Accessibility</h3>
+    <p>The Accessibility of an website is very important</p>
+    <h3>ARIA purpose</h3>
+    <p>With ARIA everyone can use the website efficently</p>
+    <!-- TODO: Ensure heading hierarchy is logical (h1 → h2 → h3) -->
+</div>
+
+</body>
+</html>
