@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #ffcc70;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #ffb84d;
+    }
+
+    h1, h2 {
+      margin: 0.5em 0;
+    }
+
+    /* Header */
+    header {
+      background: #1a1a2e;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #ffcc70;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    section h2 {
+      color: #ffcc70;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ffcc70;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* About Me */
+    #about img {
+      display: block;
+      margin-top: 15px;
+      border-radius: 50%;
+      border: 3px solid #ffcc70;
+    }
+
+    /* Skills */
+    #skills ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    #skills li {
+      margin-bottom: 8px;
+    }
+
+    /* Projects Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ffcc70;
+    }
+
+    th {
+      background: rgba(255, 204, 112, 0.2);
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 5px;
+      width: 100%;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #ffcc70;
+      color: #1a1a2e;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffb84d;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background: #1a1a2e;
+      color: #ffcc70;
+      margin-top: 40px;
+      box-shadow: 0 -4px 6px rgba(0,0,0,0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+
+      section {
+        margin: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Shuvajit Das</h1>
+  <nav>
+    <a href="#about">About</a> |
+    <a href="#skills">Skills</a> |
+    <a href="#projects">Projects</a> |
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hello! I am a beginner web developer passionate about creating interactive and responsive websites. I am learning about this from SkillCaptain.</p>
+  <img src="https://github.com/HelloFromShuvajit/FrontEnd/blob/main/dp1.jpg" alt="My Photo" width="150">
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML & CSS</li>
+    <li>Java</li>
+    <li>Spring Boot</li>
+    <li>Problem Solving</li>
+    <li>Responsive Design</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <table>
+    <tr>
+      <th>Sol Med</th>
+      <th>This project helps needy individual to track their medicine intakes.</th>
+      <th> <a href="https://github.com/HelloFromShuvajit/Project-Sol-Med/tree/master/src/Models">Link</a></th>
+    </tr>
+    <tr>
+      <td>Portfolio Website</td>
+      <td>My personal webpage</td>
+      <td><a href="#" target="_blank">View</a></td>
+    </tr>
+  </table>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <label>Name:
+      <input type="text" name="name" required>
+    </label>
+    <label>Email:
+      <input type="email" name="email" required>
+    </label>
+    <label>Message:
+      <textarea name="message"></textarea>
+    </label>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+<p>Mail:<a href=mailto:"dshuvajit0@gmail.com">dshuvajit0@gmail.com</a></p>
+<p>Phone: 976543210</p>
+  <p>© 2025 My Portfolio</p>
+</footer>
+
+</body>
+</html>

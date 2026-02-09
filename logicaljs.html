@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 7 – Tony's Café Smart Reward System</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  h1 {
+    color: #f9d423;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 25px;
+    width: 380px;
+    box-shadow: 0 0 20px rgba(249,212,35,0.3);
+  }
+  .line {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-size: 18px;
+  }
+  .offers {
+    margin-top: 20px;
+    border-top: 1px dashed #f9d423;
+    padding-top: 10px;
+  }
+  .offer {
+    background: rgba(249,212,35,0.1);
+    margin: 5px 0;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<h1>🎁 Tony's Smart Reward System</h1>
+<p>Use logical & comparison operators to make Tony's offers work!</p>
+<div class="card" id="receipt"></div>
+<script>
+  // ===============================
+  // STEP 1: Customer Info
+  // ===============================
+  let memberType = "Gold";   // TODO: "Gold", "Silver", "Regular"
+  let totalBill = 700;     // TODO: Enter your test value
+  let hasCoupon = true; // TODO: true or false
+  let isWeekend = false; // TODO: true or false
+  let offers = [];
+  // ===============================
+  // STEP 2: Free Refill Offer (&&)
+  // ===============================
+  // TODO: if memberType is "Gold" AND totalBill > 500 → push "Free refill and cookie!"
+  if (totalBill > 500 && memberType === "Gold"){
+  offers.push("Free refill and cookie!!")
+  }
+  // ===============================
+  // STEP 3: Combo Offer (||)
+  // ===============================
+  // TODO: if totalBill > 800 OR hasCoupon → push "You qualify for a combo offer!"
+  if(totalBill >800 || hasCoupon){
+    offers.push("You qualify for a combo offer!");
+  }else{
+        offers.push("No offer");
+  }
+  // ===============================
+  // STEP 4: Café Open Check (!)
+  // ===============================
+  // TODO: if NOT isWeekend → push "Tony's Café is open!" else push "Closed for maintenance!"
+  if(!isWeekend){
+    offers.push("Tony's cafe is open!");
+  }
+  else{
+    offers.push("Closed for maintenance");
+  }
+  // ===============================
+  // STEP 5: Comparison Practice
+  // ===============================
+  // TODO: if totalBill >= 1000 → push "🎁 You earned a bonus gift!"
+  if(totalBill >= 1000){
+    offers.push("🎁 You earned a bonus gift!");
+  }
+  // BONUS: Silver member with > ₹700
+  // TODO: if memberType === "Silver" && totalBill > 700 → push "You get a surprise dessert!"
+  if( memberType ==="Silver" && totalBill> 700){
+    offers.push("YOu get a surprise dessert!");
+  }
+  else{
+    offers.push("No surprise dessert for you!");
+  }
+  // ===============================
+  // DISPLAY RESULTS
+  // ===============================
+  const receipt = document.getElementById("receipt");
+  receipt.innerHTML = `
+    <div class="line"><span>Member:</span><span>${memberType}</span></div>
+    <div class="line"><span>Total Bill:</span><span>₹${totalBill}</span></div>
+    <div class="line"><span>Has Coupon:</span><span>${hasCoupon}</span></div>
+    <div class="line"><span>Weekend:</span><span>${isWeekend}</span></div>
+    <div class="offers">
+      <h3>Available Offers:</h3>
+      ${offers.length > 0 
+        ? offers.map(offer => `<div class='offer'>${offer}</div>`).join("")
+        : "<p style='opacity:0.7'>No active offers 😔</p>"
+      }
+    </div>
+  `;
+</script>
+</body>
+</html>

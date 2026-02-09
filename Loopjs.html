@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8 – Tony's Café Auto-Serving Assistant</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2b5876, #4e4376);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #ffda79;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ffda79;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .log {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 10px;
+            border-radius: 8px;
+            min-height: 60px;
+        }
+        .entry {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🤖 Tony's Café Auto-Serving Assistant</h1>
+    <div class="card">
+        <h2>☕ Step 1: Serving Customers (for loop)</h2>
+        <div class="log" id="serveLog"></div>
+    </div>
+    <div class="card">
+        <h2>🧹 Step 2: Cleaning Tables (while loop)</h2>
+        <div class="log" id="cleanLog"></div>
+    </div>
+    <div class="card">
+        <h2>⚙️ Step 3: Machine Test (do...while loop)</h2>
+        <div class="log" id="machineLog"></div>
+    </div>
+    <div class="card">
+        <h2> Step 4: Closing Cafe(bonus tip)</h2>
+        <div class="log" id="countDown"></div>
+
+    </div>
+    <script>
+        // ===============================
+      // Step 1: Serving Coffee (for loop)
+      // ===============================
+      const serveLog = document.getElementById("serveLog");
+   
+      for (let i = 1; i <= 5; i++) {
+        serveLog.innerHTML += `<div class='entry'>☕ Serving coffee to Customer ${i}</div>`;
+      }
+      serveLog.innerHTML += `<div class='entry'>✅ All customers have been served!</div>`;
+   
+   
+      // ===============================
+      // Step 2: Cleaning Tables (while loop)
+      // ===============================
+      const cleanLog = document.getElementById("cleanLog");
+      let tablesLeft = 4;
+   
+      while (tablesLeft >= 0) {
+        cleanLog.innerHTML += `<div class='entry'>🧹 Cleaning table... Tables left: ${tablesLeft}</div>`;
+        tablesLeft--;
+      }
+      cleanLog.innerHTML += `<div class='entry'>✨ All tables are clean!</div>`;
+   
+   
+      // ===============================
+      // Step 3: Machine Test (do...while loop)
+      // ===============================
+      const machineLog = document.getElementById("machineLog");
+      let testsLeft = 0;
+   
+      do {
+        machineLog.innerHTML += `<div class='entry'>⚙️ Testing espresso machine...</div>`;
+        testsLeft--;
+      } while (testsLeft > 0);
+   
+      machineLog.innerHTML += `<div class='entry'>✅ Machine check complete!</div>`;
+   
+   
+      // 💥 BONUS: Countdown before closing
+       let count = 3;
+      const countDown = setInterval(() => {
+        console.log(`Closing café in ${count}...`);
+        count--;
+        if (count < 0) {
+          clearInterval(countDown);
+          console.log("☕ Goodnight!");
+        }
+      }, 1000);
+    </script>
+</body>
+</html>
