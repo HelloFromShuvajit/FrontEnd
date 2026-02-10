@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tony's Smart Coffee Machine</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  h1 {
+    color: #ffda79;
+    text-align: center;
+  }
+  .card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    margin-bottom: 20px;
+  }
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<h1>🤖 Tony's Smart Coffee Machine</h1>
+<div class="card">
+  <h2>☕ Step 1: Greeting Function</h2>
+  <pre id="output1"></pre>
+</div>
+<div class="card">
+  <h2>💰 Step 2: Bill Calculator</h2>
+  <pre id="output2"></pre>
+</div>
+<div class="card">
+  <h2>🔁 Step 3: Combined Function</h2>
+  <pre id="output3"></pre>
+</div>
+<div class="card">
+  <h2>🌍 Step 4: Scope Demo</h2>
+  <pre id="output4"></pre>
+</div>
+<script>
+  const output1 = document.getElementById('output1');
+  const output2 = document.getElementById('output2');
+  const output3 = document.getElementById('output3');
+  const output4 = document.getElementById('output4');
+
+  // ===============================
+  // Step 1: Greeting Function
+  // ===============================
+  function greetCustomer(name) {
+    output1.innerText += `👋 Hello ${name}, welcome to Tony's Café!\n`;
+
+  }
+  greetCustomer('Peter');
+
+  // ===============================
+  // Step 2: Bill Calculator
+  // ===============================
+  function calculateBill(price, qty) {
+    let total = price * qty;
+    return total;
+  }
+  let bill = calculateBill(150, 2);
+  output2.innerText = `Bill calculated: ₹${bill}`;
+
+  // ===============================
+  // Step 3: Combine Both
+  // ===============================
+  function serveCustomer(name, price, qty) {
+    greetCustomer(name);
+    let total = calculateBill(price, qty);
+    output3.innerText = `Serving ${name} ☕ | Total = ₹${total}`;
+  }
+  serveCustomer('Natasha', 200, 3);
+
+  // ===============================
+  // Step 4: Scope Example
+  // ===============================
+  let cafeName = "Tony's Café";
+  function showSpecial() {
+    let special = 'Cappuccino';
+    output4.innerText += `${cafeName} special today is ${special}\n`;
+  }
+  showSpecial();
+  output4.innerText += `${cafeName}\n`;
+  output4.innerText += special;  // 👉 Uncomment to see error
+</script>
+</body>
+</html>

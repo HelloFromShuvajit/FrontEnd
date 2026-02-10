@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 10 – Tony's Dynamic Café Menu</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #2c2c2c;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  h1 {
+    color: #b8336a;
+    text-shadow: 1px 1px 2px #fff;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 20px;
+    width: 420px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  pre {
+    background: rgba(0,0,0,0.05);
+    padding: 10px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+<h1>🍩 Tony's Digital Menu System</h1>
+<div class="card">
+  <h2>📋 Step 1: Menu Array</h2>
+  <pre id="output1"></pre>
+</div>
+<div class="card">
+  <h2>➕ Step 2: Add/Remove Items</h2>
+  <pre id="output2"></pre>
+</div>
+<div class="card">
+  <h2>🔁 Step 3: Show Full Menu (Loop)</h2>
+  <pre id="output3"></pre>
+</div>
+<div class="card">
+  <h2>💸 Step 4: Update Prices (map)</h2>
+  <pre id="output4"></pre>
+</div>
+<div class="card">
+  <h2>❄️ Step 5: Find Cold Drinks (filter)</h2>
+  <pre id="output5"></pre>
+</div>
+<script>
+  const out1 = document.getElementById('output1');
+  const out2 = document.getElementById('output2');
+  const out3 = document.getElementById('output3');
+  const out4 = document.getElementById('output4');
+  const out5 = document.getElementById('output5');
+
+  // ===========================================
+  // Step 1: Menu Array
+  // ===========================================
+  let menuItems = ['Latte', 'Cappuccino', 'Espresso', 'Mocha'];
+  out1.innerText = `Original Menu: ${menuItems.join(', ')}\n`;
+  out1.innerText += `First item: ${menuItems[0]}\n`;
+  out1.innerText += `Third item: ${menuItems[2]}\n`;
+
+  // ===========================================
+  // Step 2: Add & Remove Items
+  // ===========================================
+  menuItems.push('Iced Latte');   // add
+  menuItems.push('Croissant');
+  menuItems.pop();                // remove last
+  menuItems.shift();              // remove first
+  out2.innerText = `Updated Menu: ${menuItems.join(', ')}\n`;
+
+  // ===========================================
+  // Step 3: Show Full Menu Using Loop
+  // ===========================================
+  for (let i = 0; i < menuItems.length; i++) {
+    out3.innerText += `☕ ${menuItems[i]} is available today!\n`;
+  }
+
+  // ===========================================
+  // Step 4: Update Prices Using map()
+  // ===========================================
+  let prices = [120, 150, 200, 250];
+  out4.innerText += `Prices: ${prices.join(', ')}\n`;
+  let updatedPrices = prices.map(price => price + price * 0.1);
+  out4.innerText += `Prices with Tax: ${updatedPrices.join(', ')}\n`;
+
+  // ===========================================
+  // Step 5: Filter for Cold Drinks
+  // ===========================================
+  let coldDrinks = menuItems.filter(item => item.toLowerCase().includes('iced'));
+  out5.innerText = `Cold Drinks: ${coldDrinks.join(', ') || 'None today!'}\n`;
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Flex box assignment
+        </title>
+        <style>
+            header, footer{
+                background-color: bisque;
+                font-family: monospace;
+                padding : 1rem;
+                text-align: center;
+                border: 2px solid black;
+                border-radius: 30px;
+            }
+            body{
+                background-color: aqua;
+            }
+            .container{
+                margin-top: 30px;
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+                border: 2px solid #333;
+                border-radius: 12px;
+            }
+            .box{
+                display: flex;
+                justify-content:center;
+                align-items:center;
+                color: darkblue;
+                padding: 1rem;
+                margin: 1.5rem;
+                text-align: center;
+                border: 1px solid white;
+                border-radius: 15px;
+                box-shadow: 10px 10px 20px #333;
+                height: 400px;
+            }
+            .box.item1{
+                background-color: rgb(223, 226, 28);
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: 150px;
+            }
+            .box.item2{
+                background-color: rgb(226, 117, 28);
+                flex-grow: 2;
+                flex-shrink: 2;
+                flex-basis: 100px;
+            }
+            .box.item3{
+                background-color: rgb(24, 63, 54);
+                color: antiquewhite;
+                flex-grow: 1.5;
+                flex-shrink: 1.5;
+                flex-basis: 120px;
+            }
+            span{
+                color: darkkhaki;
+                font-family: cursive;
+                font-weight: bolder;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+           <h1> This is the <span> header </span></h1>
+        </header>
+        <div class="container"> 
+
+            <div class="box item1"> Box 1</div>
+            <div class="box item2"> Box 2</div>
+            <div class="box item3"> Box 3</div>
+        </div>
+
+    </body>
+    <footer>
+        <h1>This is the footer</h1>
+    </footer>
+</html>

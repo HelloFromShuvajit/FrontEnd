@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 12 – Tony’s Café Ordering System ☕</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      text-shadow: 1px 1px #fff;
+    }
+    .menu, .receipt {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .menu-item {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      border: none;
+      background-color: #6a1b9a;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #8e24aa;
+    }
+    .receipt p {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>☕ Tony’s Café Ordering System</h1>
+  <div class="menu" id="menuList"></div>
+  <button id="startOrder">Start Order</button>
+  <div class="receipt" id="receipt"></div>
+  <script>
+    // --- Data Setup ---
+    class MenuItem {
+      constructor(name, price, type) {
+        this.name = name;
+        this.price = price;
+        this.type = type;
+      }
+      describe() {
+        return `${this.name} - ₹${this.price} (${this.type})`;
+      }
+    }
+
+    const menu = [
+      new MenuItem('Latte', 150, 'Drink'),
+      new MenuItem('Espresso', 120, 'Drink'),
+      new MenuItem('Brownie', 100, 'Dessert'),
+      new MenuItem('Grilled Sandwich', 130, 'Snack'),
+      new MenuItem('Cold Coffee', 180, 'Drink')
+    ];
+
+    // Display menu on screen
+    const menuList = document.getElementById('menuList');
+    menuList.innerHTML = '<h2>Today\'s Menu</h2>' + 
+      menu.map(item => `<div class='menu-item'>☕ ${item.describe()}</div>`).join('');
+
+    // --- Main Ordering Function ---
+    document.getElementById('startOrder').addEventListener('click', () => {
+      alert('👋 Welcome to Tony’s Café!');
+
+      // Step 1: Ask user for their name
+      let customerName = prompt('What’s your name?');
+      if (!customerName) customerName = 'Guest';
+
+      // Step 2: Display menu items in console
+      menu.forEach(item => console.log(item.describe()));
+
+      let orderList = [];
+      let totalBill = 0;
+
+      // Step 3: Take user orders until 'done'
+      while (true) {
+        let order = prompt('Enter item name to order (or type \'done\' to finish):');
+        if (!order) continue;
+        if (order.toLowerCase() === 'done') break;
+
+        let foundItem = menu.find(i => i.name.toLowerCase() === order.toLowerCase());
+        if (foundItem) {
+          orderList.push(foundItem);
+          totalBill += foundItem.price;
+          alert(`${foundItem.name} added to your order!`);
+        } else {
+          alert('❌ Sorry, item not found on menu.');
+        }
+      }
+
+      // Step 4: Check if returning customer
+      let returning = prompt('Are you a returning customer? (yes/no)');
+      if (returning && returning.toLowerCase() === 'yes') {
+        let discount = totalBill * 0.1;
+        totalBill -= discount;
+        alert(`🎉 You saved ₹${discount.toFixed(2)} with your loyalty discount!`);
+      }
+
+      // Step 5: Generate and show receipt
+      let receiptText = `
+      -------------------------
+      Customer: ${customerName}
+      Items Ordered:
+      ${orderList.map(i => `- ${i.name} (₹${i.price})`).join('\n')}
+      -------------------------
+      Total Items: ${orderList.length}
+      Total: ₹${totalBill}
+      Thank you for visiting Tony’s Café! ☕
+      `;
+
+      document.getElementById('receipt').innerText = receiptText;
+    });
+  </script>
+</body>
+</html>
