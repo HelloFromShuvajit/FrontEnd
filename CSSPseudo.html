@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Css Pseudo class and Elements</title>
+    </head>
+    <style>
+        body{
+            background-color: blanchedalmond;
+        }
+        main{
+            background-color: aqua;
+            max-width: 900px;
+            padding : 2rem;
+            margin: 2rem auto;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            border-radius: 20px;
+        }
+        header{
+            text-align: center;
+        }
+        h2::first-letter{
+            font-size: larger;
+            background-color: burlywood;
+            color: brown;
+        }
+        li:hover{
+            color: yellow;
+            background-color: black;
+        }
+        li:nth-child(2n+1){
+            background-color: cadetblue;
+        }
+        li:nth-child(2n){
+            background-color: darkgoldenrod;
+        } 
+        li:not(.marketing){
+            opacity: 0.5;
+        }
+        li::before{
+            content: '📝 ';
+        }
+        .marketing{
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .required::after{
+            content: '*';
+        }
+        .contact-form{
+            text-align: center;
+        }
+        .contact-form button:hover{
+            background-color: dimgrey;
+            color: chartreuse;
+        }
+        .contact-form button::after{
+            content: '➡️';
+        }
+        input:focus,
+        textarea:focus{
+            border-color: crimson;
+            background-color: darkgray;
+            color: red;
+        }
+    </style>
+<body>
+    <main>
+        
+        <header>
+            <h2>Psedo class and elements</h2>
+        </header>
+        <ul>
+            <li class="marketing"> Marketing</li>
+            <li>Design</li>
+            <li>Problem Solving</li>
+            <li>Calculate</li>
+            <li>Branding</li>
+        </ul>
+        <div class="contact-form">
+            
+            <h3>Contact Form</h3>
+            <form action="">
+                <label class="required" for="name">Name</label>
+            <input type="text">
+            <label for="email">Email</label>
+            <input type="text">
+            <label for="phone">Phone No</label>
+            <input type="number">
+            <label for="message">Message</label>
+            <input type="text">
+            <button type="submit">Send message</button>
+        </form>
+    </div>
+    
+</main>
+    
+</body>
+</html>
