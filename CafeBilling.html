@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cafe Bill</title>
+        <style>
+            body{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                background-color: aquamarine;
+                margin: 0px;
+
+            }
+            main{
+                background-color: beige;
+                max-width: 500px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin: 2rem auto;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 2px 2px sandybrown;
+            }
+            header, footer{
+                background-color:chocolate;
+                margin-top: 0px;
+                padding: 10px;
+                text-align: center;
+                color: saddlebrown;
+            }
+            h1{
+                text-shadow: 1px 1px sandybrown;
+                margin-left: 0px;
+            }
+            p{
+                color: beige;
+            }
+            h2{
+                background-color: sandybrown;
+                padding: 2px;
+                color: saddlebrown;
+                padding: 5px;
+            }
+            h3{
+                background-color: sandybrown;
+                padding: 2px;
+                color: saddlebrown;
+                padding: 5px;
+
+            }
+            .menu, .receipt{
+                color: saddlebrown;
+                padding: 10px;
+            }
+            .itemList{
+                color: saddlebrown;
+                margin: 5px;
+                font-size: large;
+            }
+            .menuList{
+                border: 2px solid burlywood;
+                padding: 5px;
+                border-radius: 10px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            button{
+                background-color: saddlebrown;
+                color: sandybrown;
+                border: 2px solid sandybrown;
+                border-radius: 5px;
+                height: auto;
+                font-size: medium;
+                margin-bottom: 10px;
+                padding: 5px;
+                margin-top: 15px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            button:hover{
+                background-color: sandybrown;
+                color: saddlebrown;
+                border: 2px solid saddlebrown;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Shuvo's Cafe </h1>
+            <h4>Ordering System</h4> 
+            <p>Place your order here, we will serve you ASAP</p>
+        </header>
+        <main>
+                <h2>Menu List</h2>
+                <div class="menuList">
+                    <div class="menu" id="breverageList"></div>
+                    <button id="orderBreverages">Order Breverages</button>
+                </div>
+                <div class="menuList">
+                    <div class="menu" id="snackList"></div>
+                    <button id="orderSnacks">Order Sancks</button>
+                </div>
+                <div class="menuList">
+                    <pre class="receipt" id="receipt"></pre>
+                    <button id="getReceipt">Your Receipt</button>
+                </div>
+        </main>
+        <footer>&copy; 2026 Shuvo&reg;</footer>
+<script>
+    class MenuItem{
+        constructor(name, price){
+            this.name=name;
+            this.price=price;
+        }
+        describe(){
+            return `${this.name} - ₹${this.price}`;
+        }
+    }
+    const menuBreverage = [
+            new MenuItem("Latte", 130),
+            new MenuItem("Espresso", 120),
+            new MenuItem("Green Tea", 90),
+            new MenuItem("Black Coffee", 80),
+            new MenuItem("Chai Tea", 70),
+    ];
+
+    const menuSnack = [
+        new MenuItem("Grilled Veg Chesse Mayonese Sandwich", 150),
+        new MenuItem("Grilled Veg Chesse Sandwich", 140),
+        new MenuItem("Grilled Veg Sandwich", 120),
+        new MenuItem("Grilled Chesse Sandwich", 110),
+        new MenuItem("Brownie", 100),
+    ]
+    const breverageList = document.getElementById('breverageList');
+    breverageList.innerHTML = '<h3>Breverage List</h3>' + 
+    menuBreverage.map(item => `<div class='itemList'>${item.describe()}</div>`).join('');
+    
+    const snackList= document.getElementById('snackList');
+    snackList.innerHTML = '<h3>Snack List</h3>' +
+    menuSnack.map(item => `<div class='itemList'>${item.describe()}</div>`).join('');
+    let orderList =[];
+    let totalBill=0;
+    let bill=0;
+    let discount=0;
+    let customer="";
+
+        document.getElementById('orderBreverages').addEventListener('click',()=>{
+
+            alert('Welcome to Shuvo\'s Cafe');
+
+            if(!customer){
+                customer= prompt("What\'s your name?");
+            }
+            if(!customer)
+            customer= 'Guest';
+            menuBreverage.forEach(item => console.log(item.describe()));
+
+
+            while(true){
+                let order = prompt('Type your Breverage Item from the list\n If done choosing type \'done\' ');
+                if(!order) continue;
+                if(order.toLocaleLowerCase() === 'done') break;
+
+                let foundItem= menuBreverage.find(i =>i.name.toLocaleLowerCase() === order.toLocaleLowerCase());
+                if(foundItem){
+                    orderList.push(foundItem);
+                    totalBill+= foundItem.price;
+                    alert(`${foundItem.name} is added to your order.`);
+                } else{
+                    alert(`${order} is not in the menu!!`);
+                }
+            }      
+        });
+        
+        document.getElementById('orderSnacks').addEventListener('click',()=>{
+
+            alert('Welcome to Shuvo\'s Cafe');
+
+            if(!customer){
+                customer= prompt("What\'s your name?");
+            }
+            if(!customer)
+            customer= 'Guest';
+            menuSnack.forEach(item => console.log(item.describe()));
+
+            while(true){
+                let order = prompt('Type your Snack Item from the list\n If done choosing type \'done\' ');
+                if(!order) continue;
+                if(order.toLocaleLowerCase() === 'done') break;
+
+                let foundItem= menuSnack.find(i =>i.name.toLocaleLowerCase() === order.toLocaleLowerCase());
+                if(foundItem){
+                    orderList.push(foundItem);
+                    totalBill+= foundItem.price;
+                    alert(`${foundItem.name} is added to your order.`);
+                } else{
+                    alert(`${order} is not in the menu!!`);
+                }
+            } 
+        });
+        document.getElementById('getReceipt').addEventListener('click',()=>{
+            bill=totalBill;
+                let returning = prompt('Are you a returning customer?[yes/no]');
+                if(returning.toLocaleLowerCase() === 'yes'){
+                    discount= totalBill * 0.1;
+                    bill= totalBill-discount;
+                    alert(`Heyy!! You just saved ₹${discount} for your loyalty!!`);
+            }
+            if(returning.toLocaleLowerCase() === 'no'){
+                discount=0;
+            }
+
+       let receiptText = `
+______________________
+
+Customer: ${customer}
+
+Items ordered:
+${orderList.map(i => `- ${i.name} (₹${i.price})`).join('\n')}
+
+______________________
+
+Total items: ${orderList.length}
+Total bill: ₹${totalBill}
+Loyalty Discount: ₹${discount}
+Final bill: ₹${bill}
+
+Thank you for ordering from Shuvo's Cafe
+`;
+
+        document.getElementById('receipt').innerHTML = `<h3>Your Receipt</h3>` + receiptText;
+        });
+
+</script>
+
+    </body>
+</html>
