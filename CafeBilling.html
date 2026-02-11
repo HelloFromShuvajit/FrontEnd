@@ -5,7 +5,7 @@
         <style>
             body{
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                background-color: aquamarine;
+                background-color:bisque;
                 margin: 0px;
 
             }
@@ -81,7 +81,7 @@
                 background-color: sandybrown;
                 color: saddlebrown;
                 border: 2px solid saddlebrown;
-                border-radius: 10px;
+                border-radius: 20px;
             }
         </style>
     </head>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="menuList">
                     <div class="menu" id="snackList"></div>
-                    <button id="orderSnacks">Order Sancks</button>
+                    <button id="orderSnacks">Order Snacks</button>
                 </div>
                 <div class="menuList">
                     <pre class="receipt" id="receipt"></pre>
@@ -130,7 +130,6 @@
         new MenuItem("Grilled Veg Chesse Sandwich", 140),
         new MenuItem("Grilled Veg Sandwich", 120),
         new MenuItem("Grilled Chesse Sandwich", 110),
-        new MenuItem("Brownie", 100),
     ]
     const breverageList = document.getElementById('breverageList');
     breverageList.innerHTML = '<h3>Breverage List</h3>' + 
