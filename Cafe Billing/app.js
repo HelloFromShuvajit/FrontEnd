@@ -1,120 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Cafe Bill</title>
-        <style>
-            body{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                background-color:bisque;
-                margin: 0px;
-
-            }
-            main{
-                background-color: beige;
-                max-width: 500px;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                margin: 2rem auto;
-                border-radius: 12px;
-                padding: 20px;
-                box-shadow: 2px 2px sandybrown;
-            }
-            header, footer{
-                background-color:saddlebrown;
-                margin-top: 0px;
-                padding: 10px;
-                text-align: center;
-                color: sandybrown;
-                box-shadow: 10px 0px 50px maroon;
-            }
-            h1{
-                text-shadow: 2px 2px maroon ;
-            }
-            p{
-                color: beige;
-            }
-            h2{
-                background-color: sandybrown;
-                padding: 2px;
-                color: saddlebrown;
-                padding: 5px;
-            }
-            h3{
-                background-color: sandybrown;
-                padding: 2px;
-                color: saddlebrown;
-                padding: 5px;
-
-            }
-            .menu, .receipt{
-                color: saddlebrown;
-                padding: 10px;
-            }
-            .itemList{
-                color: saddlebrown;
-                margin: 5px;
-                font-size: large;
-            }
-            .menuList{
-                border: 2px solid burlywood;
-                padding: 5px;
-                border-radius: 10px;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                box-shadow: 2px 2px maroon;
-            }
-            button{
-                background-color: saddlebrown;
-                color: sandybrown;
-                border: 2px solid sandybrown;
-                border-radius: 5px;
-                height: auto;
-                font-size: medium;
-                margin-bottom: 10px;
-                padding: 5px;
-                margin-top: 15px;
-                padding-left: 10px;
-                padding-right: 10px;
-                box-shadow: 2px 2px maroon;
-            }
-            button:hover{
-                background-color: sandybrown;
-                color: saddlebrown;
-                border: 2px solid saddlebrown;
-                border-radius: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Shuvo's Cafe </h1>
-            <h4>Ordering System</h4> 
-            <p>Place your order here, we will serve you ASAP</p>
-        </header>
-        <main>
-                <h2>Menu List</h2>
-                <div class="menuList">
-                    <div class="menu" id="breverageList"></div>
-                    <button id="orderBreverages">Order Breverages</button>
-                </div>
-                <div class="menuList">
-                    <div class="menu" id="snackList"></div>
-                    <button id="orderSnacks">Order Snacks</button>
-                </div>
-                <div class="menuList">
-                    <pre class="receipt" id="receipt"></pre>
-                    <button id="getReceipt">Your Receipt</button>
-                </div>
-        </main>
-        <footer>&copy; 2026 Shuvo&reg;</footer>
-<script>
-    class MenuItem{
+class MenuItem{
         constructor(name, price){
             this.name=name;
             this.price=price;
         }
         describe(){
-            return `${this.name} - ₹${this.price}`;
+            return `${this.name} - &#8377;${this.price}`;
         }
     }
     const menuBreverage = [
@@ -204,7 +94,7 @@
                 if(returning.toLocaleLowerCase() === 'yes'){
                     discount= totalBill * 0.1;
                     bill= totalBill-discount;
-                    alert(`Heyy!! You just saved ₹${discount} for your loyalty!!`);
+                    alert(`Heyy!! You just saved \u20B9${discount} for your loyalty!!`);
             }
             if(returning.toLocaleLowerCase() === 'no'){
                 discount=0;
@@ -216,22 +106,17 @@ ______________________
 Customer: ${customer}
 
 Items ordered:
-${orderList.map(i => `- ${i.name} (₹${i.price})`).join('\n')}
+${orderList.map(i => `- ${i.name} (&#8377;${i.price})`).join('\n')}
 
 ______________________
 
 Total items: ${orderList.length}
-Total bill: ₹${totalBill}
-Loyalty Discount: ₹${discount}
-Final bill: ₹${bill}
+Total bill: &#8377;${totalBill}
+Loyalty Discount: &#8377;${discount}
+Final bill: &#8377;${bill}
 
 Thank you for ordering from Shuvo's Cafe
 `;
 
         document.getElementById('receipt').innerHTML = `<h3>Your Receipt</h3>` + receiptText;
         });
-
-</script>
-
-    </body>
-</html>
