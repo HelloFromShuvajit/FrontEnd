@@ -57,9 +57,10 @@
                     top: 30px;
                 }
                 .info div{
-                    background: #f4f1f7;
+                    background: white;
                     border-radius: 12px;
                     padding: 12px;
+                    align-items: center;
                 }
                 h2{
                     position: sticky;
@@ -154,10 +155,20 @@
             </ol>
         </div>  
         <div class="moreReceipes">
-            <p>For more receipes like this, visit <a href="http://dummyjson.com/docs/recipes#recipes-all"> more receipes.</a></p>
+            <p>For more recipes like this, visit <a href="http://dummyjson.com/docs/recipes#recipes-all"> more recipes.</a></p>
         </div>
     </main>
     </body>
+    <script>
+        fetch('https://dummyjson.com/recipes/1')
+        .then(res => (res.json()))
+        .then(data => {
+            console.log(data);
+            console.log(data.name);
+            console.log(data.ingredients);
+        })
+        .catch(Error =>(console.log('Hey Dev,Error in fetching: ' + Error)))
+    </script>
 <div class="link" >
     <p><h4>
         Contact

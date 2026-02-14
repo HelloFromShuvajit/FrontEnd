@@ -1,0 +1,132 @@
+header,footer{
+    text-align: center;
+    color:  rgb(208, 245, 152);
+    background-color: crimson;
+    padding: 1rem;
+    }
+h1{
+    font:bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.recipeId{
+    color: black;
+}
+ #loading {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    display: none;
+}
+        
+#error {
+    background-color: rgb(185, 141, 141);
+    text-align: center;
+    color: rgb(252, 2, 2);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 40px solid #e74c3c;
+}
+main{
+    max-width: 800px;
+    background: rgb(245, 245, 169);
+    padding : 2rem;
+    margin: 2rem auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 20px;
+}
+.controls {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+body{
+    background-color: rgba(237, 253, 213);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0px;
+    margin:0px;
+}
+button{
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+button:hover{
+    background-color:#e74c3c;
+    color: white;
+}
+.section {
+    margin-bottom: 10px;
+    margin-top: 0rem;
+    color:crimson;
+}
+.img{
+    width: 100%;
+    border-radius: 15px;
+    max-width: 750px;
+    margin: 1.5rem;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;                    
+    border-style:outset;   
+}
+.info {
+    display: flex;
+    flex-direction: row;
+    max-width: 750px;
+    margin: auto;
+    gap: 10px;
+    position: sticky;
+    top: 30px;
+    align-items: center; 
+    justify-items: center;
+}
+
+.infodetails {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+}
+h2{
+    top: 150px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: crimson;
+    text-align:left;
+    color:chartreuse;
+    font-family:fantasy;
+    font-weight:200;
+    max-height: fit-content;
+    max-width: 750px;
+    padding-left: 105px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+ol, ul{
+    font-size: 15px;
+    font-family: cursive;
+    padding-left:180px ;
+    background-color: #f4f1f7;
+    border-radius: 12px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.link{
+    text-align: center;
+}
+.link a:link{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: crimson;
+}
+.link a:hover{
+    color: rgb(236, 30, 30);
+    text-decoration:overline;
+}
+h4{
+    text-decoration: underline;
+}

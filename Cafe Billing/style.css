@@ -9,7 +9,7 @@
                 gap: 10px;
                 align-items: stretch;
                 background-color: beige;
-                max-width: 900px;
+                max-width: 1000px;
                 margin-top: 0px;
                 margin-bottom: 0px;
                 margin: 2rem auto;
@@ -48,6 +48,17 @@
                 color: saddlebrown;
                 padding: 10px;
             }
+            .menuHeading{
+                display: flex;
+                background-color: saddlebrown;
+                flex-direction: column;
+                border-radius: 12px;
+            }
+            .motto{
+                margin-top: auto;
+                font-style: italic;
+                padding: 1rem;
+            }
             .itemList{
                 color: saddlebrown;
                 margin: 5px;
@@ -60,6 +71,9 @@
                 margin-top: 5px;
                 margin-bottom: 5px;
                 box-shadow: 2px 2px maroon;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
             }
             button{
                 background-color: saddlebrown;
@@ -68,7 +82,8 @@
                 border-radius: 5px;
                 height: auto;
                 font-size: medium;
-                margin-bottom: 10px;
+                margin-bottom: 2rem;
+                margin-top: auto;
                 padding: 5px;
                 margin-top: 15px;
                 padding-left: 10px;

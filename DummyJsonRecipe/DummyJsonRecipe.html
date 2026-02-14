@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Get Recipes</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="info">
+        <header>
+            <div id="recipe" class="recipe">    
+                <h1 id="recipeName"></h1>
+            </div>
+        </header>
+        <main>
+            <img id="img" src="" class="img" alt="recipe">
+
+                <div class="info">
+                    <div class="infodetails">
+                    <span>⏱️</span>
+                    <span id="prepTime"></span>
+                </div>
+                <div class="infodetails">
+                    <span>🔥</span>
+                    <span id="cookTime"></span>
+                </div>
+                <div class="infodetails">
+                    <span>🍽️</span>
+                    <span id="servings"></span>
+                </div>
+                <div class="infodetails">
+                    <span>📊</span>
+                    <span id="difficulty"></span>
+                </div>
+            </div>
+            <div class="section">
+                <h2>INGREDIENTS</h2>
+                <ul id="ingredientsList"></ul>
+            </div>
+            <div class="section">
+                <h2>INSTRUCTIONS</h2>
+                <ol id="instructionsList"></ol>
+            </div>
+        </div>
+            </main>
+            
+            <div class="controls">
+                <label for="recipeId" class="recipeId">Recipe ID:</label>
+                <input type="number" id="recipeId" value="1" min="1" max="50">
+                <button onclick="loadRecipe()">Load Recipe</button>
+            </div>
+            
+            <div id="loading" class="loading">
+                <p>Loading recipe...</p>
+            </div>
+            <div id="error" class="error">
+                <p id="errorMessage" class="errorMessage"></p>
+            </div>
+        </body>
+        <script src="Recipe.js">
+    </script>
+    <footer>
+        <p>
+            &#169; 2026 | DummyJsonRecipes
+        </p>
+    </footer>
+</html>

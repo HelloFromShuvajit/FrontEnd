@@ -7,7 +7,7 @@ class MenuItem{
             return `${this.name} - &#8377;${this.price}`;
         }
     }
-    const menuBreverage = [
+    const menuBeverage = [
             new MenuItem("Latte", 130),
             new MenuItem("Espresso", 120),
             new MenuItem("Green Tea", 90),
@@ -16,14 +16,14 @@ class MenuItem{
     ];
 
     const menuSnack = [
-        new MenuItem("Grilled Veg Chesse Mayonese Sandwich", 150),
-        new MenuItem("Grilled Veg Chesse Sandwich", 140),
+        new MenuItem("Grilled Veg Cheese Mayonese Sandwich", 150),
+        new MenuItem("Grilled Veg Cheese Sandwich", 140),
         new MenuItem("Grilled Veg Sandwich", 120),
-        new MenuItem("Grilled Chesse Sandwich", 110),
+        new MenuItem("Grilled Cheese Sandwich", 110),
     ]
-    const breverageList = document.getElementById('breverageList');
-    breverageList.innerHTML = '<h3>Breverage List</h3>' + 
-    menuBreverage.map(item => `<div class='itemList'>${item.describe()}</div>`).join('');
+    const beverageList = document.getElementById('beverageList');
+    beverageList.innerHTML = '<h3>Beverage List</h3>' + 
+    menuBeverage.map(item => `<div class='itemList'>${item.describe()}</div>`).join('');
     
     const snackList= document.getElementById('snackList');
     snackList.innerHTML = '<h3>Snack List</h3>' +
@@ -34,7 +34,7 @@ class MenuItem{
     let discount=0;
     let customer="";
 
-        document.getElementById('orderBreverages').addEventListener('click',()=>{
+        document.getElementById('orderBeverages').addEventListener('click',()=>{
 
             alert('Welcome to Shuvo\'s Cafe');
 
@@ -43,7 +43,7 @@ class MenuItem{
             }
             if(!customer)
             customer= 'Guest';
-            menuBreverage.forEach(item => console.log(item.describe()));
+            menuBeverage.forEach(item => console.log(item.describe()));
 
 
             while(true){
@@ -51,7 +51,7 @@ class MenuItem{
                 if(!order) continue;
                 if(order.toLocaleLowerCase() === 'done') break;
 
-                let foundItem= menuBreverage.find(i =>i.name.toLocaleLowerCase() === order.toLocaleLowerCase());
+                let foundItem= menuBeverage.find(i =>i.name.toLocaleLowerCase() === order.toLocaleLowerCase());
                 if(foundItem){
                     orderList.push(foundItem);
                     totalBill+= foundItem.price;
@@ -115,7 +115,8 @@ Total bill: &#8377;${totalBill}
 Loyalty Discount: &#8377;${discount}
 Final bill: &#8377;${bill}
 
-Thank you for ordering from Shuvo's Cafe
+Thank you for ordering 
+from Shuvo's Cafe
 `;
 
         document.getElementById('receipt').innerHTML = `<h3>Your Receipt</h3>` + receiptText;
