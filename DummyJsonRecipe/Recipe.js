@@ -1,7 +1,7 @@
 async function loadRecipe() {
     const recipeId = document.getElementById('recipeId').value;
 
-    document.getElementById('loading').style.display= 'block';
+    toggleLoading(true);
     document.getElementById('error').style.display= 'none';
     document.getElementById('info').style.display= 'none';
     try{
@@ -25,13 +25,14 @@ async function loadRecipe() {
     }
     catch{
         console.error("Error in loading recipe!");
-        document.getElementById('loading').style.display = 'none';
+        toggleLoading(false);
         document.getElementById('error').style.display = 'block';
         document.getElementById('errorMessage').textContent = `Recipe not found`;
     }
 }
 function displayRecipe(recipe) {
-        document.getElementById('loading').style.display= 'none';
+
+        toggleLoading(false);
         document.getElementById('info').style.display= 'block';
 
         document.getElementById('recipeName').textContent = `${recipe.name}`;
@@ -45,25 +46,39 @@ function displayRecipe(recipe) {
         const ingredientsList = document.getElementById('ingredientsList');
         ingredientsList.innerHTML ='';
 
-        recipe.ingredients.forEach(ingredient => {
-            const li= document.createElement('li');
-            li.textContent=ingredient;
-            ingredientsList.appendChild(li);
-        });
+        listMaker(recipe.ingredients, ingredientsList);
+        // recipe.ingredients.forEach(ingredient => {
+        //     const li= document.createElement('li');
+        //     li.textContent=ingredient;
+        //     ingredientsList.appendChild(li);
+        // });
 
 
         const instructionsList = document.getElementById('instructionsList');
         instructionsList.innerHTML ='';
 
-        recipe.instructions.forEach(instruction => {
+        listMaker(recipe.instructions, instructionsList);
+        // recipe.instructions.forEach(instruction => {
+        //     const li= document.createElement('li');
+        //     li.textContent=instruction;
+        //     instructionsList.appendChild(li);
+        // });
+
+    }
+    function listMaker(listElements, displayList){
+        listElements.forEach(element => {
             const li= document.createElement('li');
-            li.textContent=instruction;
-            instructionsList.appendChild(li);
+            li.textContent=element;
+            displayList.appendChild(li);
         });
 
     }
+    function toggleLoading(isVisible){
+        const toggleType = isVisible?'block':'none';
+        document.getElementById('loading').style.display= toggleType;
 
-window.addEventListener('DOMContentLoaded', () => {
-    console.log('Page loaded, calling loadRecipe');
-    loadRecipe();
-});
+    }
+// window.addEventListener('DOMContentLoaded', () => {
+//     console.log('Page loaded, calling loadRecipe');
+// });
+loadRecipe();

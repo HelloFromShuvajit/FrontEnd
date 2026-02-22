@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 7 – Traffic Light Simulator</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #ffcc70;
+  }
+  .traffic-light {
+    background: #222;
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 0 20px rgba(255, 204, 112, 0.3);
+  }
+  .light {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #444;
+    transition: background 0.3s ease;
+  }
+  .on {
+    box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.5);
+  }
+</style>
+</head>
+<body>
+
+<h1>🚦 Traffic Light Simulator</h1>
+<div class="traffic-light">
+  <div id="red" class="light"></div>
+  <div id="yellow" class="light"></div>
+  <div id="green" class="light"></div>
+</div>
+
+<script>
+  const red = document.getElementById('red');
+  const yellow = document.getElementById('yellow');
+  const green = document.getElementById('green');
+
+  function resetLights() {
+    red.style.background = '#444';
+    yellow.style.background = '#444';
+    green.style.background = '#444';
+  }
+
+  function turnOnRed(callback) {
+    resetLights();
+    red.style.background = 'red';
+    red.classList.add('on');
+    setTimeout(callback, 3000);
+  }
+
+  function turnOnYellow(callback) {
+    resetLights();
+    yellow.style.background = 'yellow';
+    yellow.classList.add('on');
+    setTimeout(callback, 1000);
+  }
+
+  function turnOnGreen(callback) {
+    resetLights();
+    green.style.background = 'limegreen';
+    green.classList.add('on');
+    setTimeout(callback, 3000);
+  }
+
+  function startTrafficCycle() {
+    turnOnRed(() => {
+      turnOnYellow(() => {
+        turnOnGreen(() => {
+          startTrafficCycle();
+        });
+      });
+    });
+  }
+
+  startTrafficCycle();
+</script>
+
+</body>
+</html>
